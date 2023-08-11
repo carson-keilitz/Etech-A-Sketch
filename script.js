@@ -1,11 +1,11 @@
 initalizeButton()
-createGrid(promptUserForSize());
+createGrid(16);
 
 function promptUserForSize() {
     let userInput = prompt("Please enter the size of grid")
     if (!isNaN(parseInt(userInput)) && Number.isInteger(Number(userInput))) {
         let userNumber = parseInt(userInput)
-        if (userNumber < 100) return userNumber
+        if (userNumber <= 100) return userNumber
         else {
             console.log("Greater than 100")
             promptUserForSize()
@@ -38,7 +38,7 @@ function addEventListeners() {
     let rows = document.querySelectorAll('.row')
     rows.forEach((element)=> {
         element.addEventListener("mouseover", ()=> {
-            element.style.backgroundColor = "grey"
+            element.style.backgroundColor = `rgb(${Math.random() *256},${Math.random() *256},${Math.random() * 256})`
         })
     })
 }

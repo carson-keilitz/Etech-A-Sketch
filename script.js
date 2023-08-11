@@ -1,6 +1,32 @@
+initalizeButton()
+createGrid(16);
+
+function initalizeButton() {
+    const button = document.querySelector('button')
+    button.addEventListener('click', () => {
+    refreshPage();
+    })
+}
+
+function getHeightPercentage(gridsize) {
+    const rows = document.querySelectorAll(".row")
+    rows.forEach((element) => {
+        element.style.height = `${((1 / gridsize) * (9 / 10))* 100}vh`;
+    })
+}
+
+function addEventListeners() {
+    let rows = document.querySelectorAll('.row')
+    rows.forEach((element)=> {
+        element.addEventListener("mouseover", ()=> {
+            element.style.backgroundColor = "grey"
+        })
+    })
+}
+
+//initalizes a grid based on input
 function createGrid(gridsize) {
-    const container = document.querySelector(".container")
-    console.log(container)
+    let container = document.querySelector(".container")
     for (let i = 0; i < gridsize;i++) {
         let column = document.createElement('div')
         column.className = 'column'
@@ -11,5 +37,18 @@ function createGrid(gridsize) {
         }
         container.appendChild(column)
     }
+    getHeightPercentage(16)
+    addEventListeners()
 }
-createGrid(16);
+//removes elements and creates a new grid.
+function refreshPage() {
+    const container = document.querySelector(".container")
+    const col = document.querySelectorAll('.column')
+    col.forEach((element) => {
+        element.remove()
+    })
+    console.log("creating new")
+    console.log(container)
+    createGrid(16);
+}
+

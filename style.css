@@ -1,3 +1,56 @@
+body {
+    margin:0;
+    padding:0;
+}
+
 .container {
     display:flex;
+    background-color: orange;
+    margin:0;
+    height: 90vh;
+    justify-content: space-evenly;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex:1;
+}
+.row {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+.changeColor {
+    color:white;
+}
+
+.header {
+    height: 5vh;
+    display: flex;
+    justify-content: stretch;
+}
+button {
+    display: flex;
+    flex:1;
+    background-color: red;
+    font-family: cursive;
+    font-size: 4vh;
+    justify-content: center;
+    align-self: center;
+}
+.footer {
+    height:5vh;
+    display: flex;
+}
+.title {
+    flex:1;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+    font-size: 5vh;
+    font-family: cursive;
+    background-color: red;
 }

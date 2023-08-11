@@ -1,5 +1,24 @@
 initalizeButton()
-createGrid(16);
+createGrid(promptUserForSize());
+
+function promptUserForSize() {
+    let userInput = prompt("Please enter the size of grid")
+    if (!isNaN(parseInt(userInput)) && Number.isInteger(Number(userInput))) {
+        let userNumber = parseInt(userInput)
+        if (userNumber < 100) return userNumber
+        else {
+            console.log("Greater than 100")
+            promptUserForSize()
+        }    
+    }
+    else {
+        console.log("Not an integer")
+        promptUserForSize()
+    }
+}
+
+
+
 
 function initalizeButton() {
     const button = document.querySelector('button')
@@ -26,6 +45,7 @@ function addEventListeners() {
 
 //initalizes a grid based on input
 function createGrid(gridsize) {
+    console.log(gridsize.type)
     let container = document.querySelector(".container")
     for (let i = 0; i < gridsize;i++) {
         let column = document.createElement('div')
@@ -49,6 +69,6 @@ function refreshPage() {
     })
     console.log("creating new")
     console.log(container)
-    createGrid(16);
+    createGrid(promptUserForSize());
 }
 
